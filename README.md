@@ -1,7 +1,7 @@
 # Keyingi Palindrom Sonni Topish
 # Kod doppi dasturlash tilida yozilgan
 Ushbu kod berilgan sondan boshlanib, **keyingi palindrom son** topish jarayonini amalga oshiradi. Kodda **palindrom** — sonni teskari yozilganda ham o'ziga teng bo'lgan son sifatida aniqlanadi.
-
+![Kodni bajarish natijasi](https://github.com/bintuqosim-dev/SoftwareEngineer319/blob/Hayotjon-Dev/Screenshot%202024-10-31%20021009.png)
 ## Funksiya Tafsiloti
 
 ### `isPalindrome(num)` funksiyasi:
