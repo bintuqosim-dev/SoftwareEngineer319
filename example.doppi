@@ -1,0 +1,35 @@
+funksiya isPalindrome(num) {
+    // O'zgaruvchilarni e'lon qilish
+    yarat n, k, rev := 0;
+    // num qiymatini n ga saqlaymiz, keyin solishtirish uchun
+    n := num;
+
+    // num 0 ga teng bo'lmaguncha, uning teskari ko'rinishini topamiz va
+    // rev ga saqlaymiz
+    toki(emas(num == 0)) {
+        k := num % 10;
+        rev := (rev * 10) + k;
+        num := yaxlitla(num / 10);
+    };
+
+    // num va uning teskari ko'rinishi bir xil ekanini tekshiramiz
+    agar (n == rev) {
+        1;
+    } aks {
+        0;
+    };
+};
+
+// Boshqaruvchi kod
+
+// Istalgan sondan uning keyingi palindrom sonini topamiz
+yarat num := 9687;
+
+// Agar son palindrom bo'lmasa, tokitsiklda keyingi
+// sondan davom etamiz
+toki(isPalindrome(num) == 0) {
+    num := num + 1;
+};
+
+// Endi keyingi palindrom sonni topdik, uni chop etamiz
+chiqar("Next Palindrome :", num);
