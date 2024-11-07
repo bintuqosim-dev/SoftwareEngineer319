@@ -1,76 +1,44 @@
 
-#include <iostream>
-#include <vector>
 
+
+    
+
+#include <iostream>
 using namespace std;
 
 
-void merge(vector<int>& arr, int left, int mid, int right) {
-    int n1 = mid - left + 1;
-    int n2 = right - mid;
+int binarySearch(int arr[], int low, int high, int x)
+{
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
 
-    
-    vector<int> leftArr(n1);
-    vector<int> rightArr(n2);
+       
+        if (arr[mid] == x)
+            return mid;
 
-    
-    for (int i = 0; i < n1; i++)
-        leftArr[i] = arr[left + i];
-    for (int j = 0; j < n2; j++)
-        rightArr[j] = arr[mid + 1 + j];
+        
+        if (arr[mid] < x)
+            low = mid + 1;
 
-    
-    int i = 0, j = 0, k = left;
-    while (i < n1 && j < n2) {
-        if (leftArr[i] <= rightArr[j]) {
-            arr[k] = leftArr[i];
-            i++;
-        } else {
-            arr[k] = rightArr[j];
-            j++;
-        }
-        k++;
+       
+        else
+            high = mid - 1;
     }
 
-
-    while (i < n1) {
-        arr[k] = leftArr[i];
-        i++;
-        k++;
-    }
-
-
-    while (j < n2) {
-        arr[k] = rightArr[j];
-        j++;
-        k++;
-    }
+   
+    return -1;
 }
 
-void mergeSort(vector<int>& arr, int left, int right) {
-    if (left >= right) return; // Base case
 
-    int mid = left + (right - left) / 2;
-
-    mergeSort(arr, left, mid);        // Sort first half
-    mergeSort(arr, mid + 1, right);   // Sort second half
-    merge(arr, left, mid, right);     // Merge sorted halves
-}
-
-int main() {
-    vector<int> arr = {38, 27, 43, 3, 9, 82, 10};
-
-    cout << "Original array: ";
-    for (int num : arr)
-        cout << num << " ";
-    cout << endl;
-
-    mergeSort(arr, 0, arr.size() - 1);
-
-    cout << "Sorted array: ";
-    for (int num : arr)
-        cout << num << " ";
-    cout << endl;
-
+int main(void)
+{
+    int arr[] = { 2, 3, 4, 10, 40 };
+    int x = 10;
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int result = binarySearch(arr, 0, n - 1, x);
+    if(result == -1) cout << "Element is not present in array";
+    else cout << "Element is present at index :" << result<<"\n";
     return 0;
 }
+
+
